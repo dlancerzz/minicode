@@ -1,0 +1,22 @@
+<!--miniprogram/pages/stpe/step.wxml-->
+<scroll-view class="centerview">
+	<text class="normaltext" >{{notdata}}</text>
+	<swiper indicator-dots="true" style="height:250px">
+		<swiper-item>
+			<image id="soso" class="step-image" mode="aspectFit" src="{{sososvg}}" bindtap='tapImage' ></image>
+		</swiper-item>
+		<swiper-item>
+			<image id="soss" class="step-image" mode="aspectFit" src="{{sosssvg}}" bindtap='tapImage' ></image>
+		</swiper-item>
+		<swiper-item>
+			<image id="pay" class="pay-image" mode="aspectFit" src="/images/paywxm.png" bindtap='tapImage'></image>
+      <view calss="centerview">
+      <text>捐赠给我</text></view>
+		</swiper-item>
+	</swiper>
+  <text>点击查看大图</text>
+	<!-- <image class="step-image" mode="aspectFit" src="{{sossvg}}" ></image> -->
+
+	<!-- <image class="step-image" mode="aspectFit" src="{{sososvg}}" ></image> -->
+</scroll-view>
+<!-- <image class="step-image" mode="aspectFit" src="{{sosssvg}}" ></image> -->

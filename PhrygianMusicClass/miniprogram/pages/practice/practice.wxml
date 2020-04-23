@@ -1,0 +1,33 @@
+<view class="container">
+	<view class="flex-wrp" style="flex-direction:column;">
+		<view class="titletext">
+			<text style="word-wrap: break-word;" >{{item.title}}</text>
+		</view>
+		<view style="height:10px"></view>
+		<text style="word-wrap: break-word;text-align: start;">{{item.context}}</text>
+		<view style="height:10px"></view>
+		<view class="righttext">
+			<text style="padding-right: 10px;">{{item.pickDate}}</text>
+		</view>
+	</view>
+	<view style="height:20px"></view>
+	<view class="centertitle">
+		<text >我的练习</text>
+	</view>
+	<view style="height:20px"></view>
+	<view>
+		<textarea class="weui-input" name="context" maxlength="100" auto-height value="{{item.title}}-{{username}}的练习" bindinput="titlechage" />
+		</view>
+	<view>
+		<video wx:if="{{fileurl}}" id="myVideo" autoplay="true"  src="{{fileurl}}" danmu-list="{{danmuList}}"></video>
+	</view>
+	<button wx:if="{{fileurl}}" style="width:95%"  bindtap="delVideo" id="{{item._id}}">删除视频</button>
+	<button wx:if="{{!fileurl}}" style="width:95%"  bindtap="getVideo" id="{{item._id}}">添加视频</button>
+
+	<view style="height:20px"></view>
+	<view class="buttonview" >
+	<text class="errormessage">{{errmsg}}</text>
+	<button wx:if="{{show}}" style="width:95%" type="primary" bindtap="submitNew" id="{{item._id}}">上传新练习</button>
+	</view>
+
+</view>

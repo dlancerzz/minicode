@@ -1,0 +1,22 @@
+<view class="container">
+<view class="firsttitle">用户信息</view>
+	<view style="height:20px"></view>
+	<view class="userinfo">
+		<button style="width:95%" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息 </button>
+		<block wx:else>
+			<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+			<radio-group class="radio-group" bindchange="radioChange">
+				<radio class="radio" value="teacher" checked="false">
+					<text>我是老师</text>
+				</radio>
+				<radio class="radio" value="student" checked="true">
+					<text>我是学生</text>
+				</radio>
+			</radio-group>
+			<view class="usermotto">
+				<button style="width:95%" type="primary" bindtap="bindViewTap">保存</button>
+			</view>
+		</block>
+	</view>
+</view>

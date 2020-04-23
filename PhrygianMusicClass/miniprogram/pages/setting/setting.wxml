@@ -1,0 +1,55 @@
+<view class="container">
+<view class="firsttitle">课程设置</view>
+	<scroll-view scroll-y="true" style="height: 520rpx;padding-left: 10px;">
+		<view wx:for-items="{{classes}}" wx:key="_id" class="scrollitem">
+			<view class="flex-wrp" style="flex-direction:row;">
+				<view class="flex-wrp" style="flex-direction:column;">
+					<view class="titletext">
+						<text style="word-wrap: break-word;" >{{item.title}}</text>
+					</view>
+					<text style="word-wrap: break-word;text-align: start;">{{item.context}}</text>
+					<view class="righttext">
+						<text style="padding-right: 10px;">{{item.pickDate}}</text>
+					</view>
+				</view>
+				<view>
+					<icon id="{{item._id}}" type="cancel" size="24" bindtap="deleteItem" />
+				</view>
+
+			</view>
+		</view>
+	</scroll-view>
+	<view style="height:20px"></view>
+	<view class="centertitle">
+		<text >发布课程</text>
+	</view>
+  	<view style="height:20px"></view>
+	<form bindsubmit="formSubmit" bindreset="formReset">
+		<view class="titletext">
+			<text >标题：</text>
+		</view>
+		<view>
+			<input class="weui-input" name="title" maxlength="50" placeholder="不要超过50个字" />
+		</view>
+		<view class="titletext">
+			<text>要求：</text>
+		</view>
+		<view>
+			<textarea class="weui-input" name="context" maxlength="200" auto-height placeholder="不要超过200个字" />
+			</view>
+  <view class="titletext">
+  <text>截止日期：</text>
+  </view>
+  <view>
+			<picker name="pickdate" mode="date" value="{{pickdate}}" start="{{yesterday}}"  bindchange="bindDateChange">
+    <view class="picker">
+      当前选择: {{pickdate}}
+    </view>
+  </picker>
+		</view>
+    <view class="btn-area">
+    <button style="width:95%" type="primary" formType="submit">发布</button>
+    <button style="width:95%" formType="reset">取消</button>
+  </view>
+  </form>
+</view>

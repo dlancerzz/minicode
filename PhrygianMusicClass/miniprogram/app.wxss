@@ -1,0 +1,11 @@
+.container{
+  width:95%;
+  text-align:center;
+  
+}
+
+.firsttitle{
+  font-weight: bold;
+  padding: 10rpx;
+  font-size: 40rpx;
+}

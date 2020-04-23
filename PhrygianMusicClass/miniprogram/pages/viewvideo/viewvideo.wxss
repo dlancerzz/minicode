@@ -1,0 +1,45 @@
+/* pages/viewvideo/viewvideo.wxss *//* pages/setting/setting.wxss */
+.titletext{
+  font-weight: bold;
+}
+.righttext{
+  text-align: right;
+}
+.btn-area{
+  padding: 10px;
+}
+.centertitle{
+  font-weight: bold;
+  text-align: center;
+}
+.scrollitem{
+  border-style:solid;
+  border-width: 0.5px;
+  padding-bottom: 5px;
+}
+.videoshow{
+  width:90%;
+  height: 800rpx;
+}
+.danmu-item{
+  position: absolute;
+  top: calc(5%);
+  left: calc(100% - 120rpx);
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 32rpx;
+  color: aqua;
+  text-align: center;
+  vertical-align: middle;
+}
+.send-danmu-item{
+  position: absolute;
+  top: calc(100% - 150rpx);
+  left: calc(10%);
+  text-align: center;
+  vertical-align: middle;
+  color: blue;
+  flex-direction:row-reverse;
+  width:80%;
+  /* background-color:red; */
+}

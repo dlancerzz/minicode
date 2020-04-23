@@ -1,0 +1,34 @@
+<view class="container">
+<view class="firsttitle">我的练习</view>
+
+<view class="centertitle">
+		<text >我的课程</text>
+	</view>
+	<view class="flex-wrp" style="flex-direction:row;">
+		<radio-group class="radio-group" bindchange="radioChange">
+			<radio class="radio" wx:for-items="{{classes}}" wx:key="name" value="{{item._id}}">
+				<text>{{item.title}}</text>
+			</radio>
+		</radio-group>
+	</view>
+	<view style="height:20px"></view>
+	<view class="centertitle">
+		<text >我的练习</text>
+	</view>
+	<view style="height:20px"></view>
+	<scroll-view scroll-y="true">
+		<view wx:for-items="{{practices}}" wx:key="_id" class="scrollitem">
+			<view class="titletext">
+				<text style="word-wrap: break-word;" >{{item.title}}</text>
+			</view>
+			<view>
+				<icon id="{{item._id}}" type="cancel" size="24" bindtap="deleteItem" />
+			</view>
+		</view>
+	</scroll-view>
+	<view style="height:20px"></view>
+	<view>
+		<button style="width:95%" type="primary" bindtap="submitNew" id="{{item._id}}">上传新练习</button>
+	</view>
+
+</view>

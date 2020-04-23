@@ -1,0 +1,27 @@
+<view class="container">
+ <view class="firsttitle">所有练习</view>
+	<scroll-view scroll-y="true" style="height: 1024px;padding-left: 10px;" bindscrolltolower="loadMoreData">
+		<view wx:for-items="{{practices}}" wx:key="_id" class="scrollitem">
+			<view class="flex-wrp">
+				<view class="titletext">
+					<text style="word-wrap: break-word;" >{{item.classTitle}}</text>
+				</view>
+				<view><text style="word-wrap: break-word;text-align: start;">{{item.title}}</text></view>
+				<view>
+					<!-- <video class="videoshow" id="{{item._id}}" autoplay="false" src="{{item.fileID}}" enable-danmu="true" danmu-btn="true" danmu-list="{{item.danmu}}">
+						<cover-view class="danmu-item" bindtap="showSendDanmu">弹</cover-view>
+						<cover-view wx:if="{{showSendItem}}" class="send-danmu-item" >
+								<input class="weui-input" name="danmutext" maxlength="50" placeholder="吐槽一下" bindinput="inputdanmu" bindconfirm="sendDanmu" />
+						</cover-view>
+					</video> -->
+				</view>
+				<view class="righttext">
+					<text style="padding-right: 10px;">{{item.nickName}}</text>
+				</view>
+				<view style="height:20px"></view>
+				<view><button id="{{item._id}}" style="width:85%" bindtap="viewDetail">查看</button></view>
+
+			</view>
+		</view>
+	</scroll-view>
+</view>

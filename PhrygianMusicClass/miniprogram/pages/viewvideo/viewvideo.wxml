@@ -1,0 +1,20 @@
+<view class="container">
+	<view class="flex-wrp">
+		<view class="titletext">
+			<text style="word-wrap: break-word;" >{{item.classTitle}}</text>
+		</view>
+		<view><text style="word-wrap: break-word;text-align: start;">{{item.title}}</text></view>
+		<view>
+			<video class="videoshow" id="myvideo" autoplay="false" src="{{item.fileID}}" enable-danmu="true" danmu-btn="true" danmu-list="{{item.danmu}}" bindtimeupdate="videotimeupdate">
+			</video>
+		</view>
+		<view style="height:20px">
+		</view>
+		<view>
+			<input  class="weui-input" name="danmutext" maxlength="50" placeholder="吐槽一下" bindinput="inputdanmu" bindconfirm="sendDanmu" />
+		</view>
+		<view>
+			<button style="width:90%" bindtap="sendDanmu">吐槽一下</button>
+		</view>
+	</view>
+</view>
