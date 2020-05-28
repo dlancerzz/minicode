@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/stpe/step"
+    "pages/stpe/step",
+    "pages/words/words",
+    "pages/parap/parap"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

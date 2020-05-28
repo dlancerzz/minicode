@@ -1,0 +1,27 @@
+<!--miniprogram/pages/stpe/step.wxml-->
+<scroll-view class="centerview">
+	<!-- <text class="normaltext" >{{notdata}}</text> -->
+	<view wx:for="{{words}}" wx:key="index" class="scrollitem">
+		<view class="flex-wrp">
+			<view class="titletext">
+				<text style="word-wrap: break-word;" >{{item.duyin}}</text>
+			</view>
+			<view wx:for="{{item.words}}" wx:key="index" wx:for-item="newitem" class="scrollitem">
+				<view class="padingview">
+					<text class="normaltext">{{newitem.order}}.</text>
+					<text class="normaltext">{{newitem.word}}</text>
+					<text wx:if="{{newitem.pinyin}}" class="normaltext">【{{newitem.pinyin}}】</text>
+				</view>
+				<view class="padingview" wx:if="{{newitem.paraphrase}}">
+					<text class="normaltext">{{newitem.paraphrase}}</text>
+				</view>
+				<view class="padingview" wx:if="{{newitem.source}}">
+					<text class="normaltext">{{newitem.source}}</text>
+				</view>
+				<view class="padingview" wx:if="{{newitem.english}}">
+					<text class="normaltext">{{newitem.english}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>

@@ -22,29 +22,16 @@ Page({
         url: '../index/index',
       })
     } else {
-      console.log(options);
-      console.log(options.id);
       var char = options.id;
       var md5=utilMd5.md5(char)
       this.setData({
         notdata: char +" 字笔顺如下：",
         md5:md5,
-        sossvg: `https://qiaqiadictionary.netlify.com/${md5}/sos.svg`,
-        sosssvg: `https://qiaqiadictionary.netlify.com/${md5}/soss.svg`,
-        sososvg: `https://qiaqiadictionary.netlify.com/${md5}/soso.svg`
+        sossvg: `cloud://qiaqiadic-db-addw8.7169-qiaqiadic-db-addw8-1301843325/hanzi/sos/${md5}.svg`,
+        sosssvg: `cloud://qiaqiadic-db-addw8.7169-qiaqiadic-db-addw8-1301843325/hanzi/soss/${md5}.svg`,
+        sososvg: `cloud://qiaqiadic-db-addw8.7169-qiaqiadic-db-addw8-1301843325/hanzi/soso/${md5}.svg`
       })
     }
-    // var that = this;
-    // setInterval(function() {
-    //   var date=new Date();
-    //   var second = date.getSeconds()
-    //   that.setData({
-    //     sososvg: "https://qiaqiadictionary.netlify.com/" + md5 + "/soso.svg?"+second
-    //   })
-    //   console.log(that.data.sososvg);
-      
-    // }, 30000)
-
   },
   loadDefault:function(){
    wx.previewImage({
@@ -53,16 +40,15 @@ Page({
    })
   },
   tapImage: function (event) {
-    console.log(event)
     var imageurl="/images/paywx.png";
     var md5=this.data.md5;
     var urlList=[];
     if(event.target.id == "soso"){
-      imageurl=`https://qiaqiadictionary.netlify.com/${md5}/step.jpg`;
-      urlList=[`https://qiaqiadictionary.netlify.com/${md5}/step.gif`,`https://qiaqiadictionary.netlify.com/${md5}/step.jpg`]
+      imageurl=`https://raw.githubusercontent.com/dlancerzz/hanzi/master/${md5}/step.jpg`;
+      urlList=[`https://raw.githubusercontent.com/dlancerzz/hanzi/master/${md5}/step.gif`,`https://raw.githubusercontent.com/dlancerzz/hanzi/master/${md5}/step.jpg`]
     }else if(event.target.id == "soss"){
-      imageurl=`https://qiaqiadictionary.netlify.com/${md5}/step.jpg`;
-      urlList=[`https://qiaqiadictionary.netlify.com/${md5}/step.gif`,`https://qiaqiadictionary.netlify.com/${md5}/step.jpg`]
+      imageurl=`https://raw.githubusercontent.com/dlancerzz/hanzi/master/${md5}/step.jpg`;
+      urlList=[`https://raw.githubusercontent.com/dlancerzz/hanzi/master/${md5}/step.gif`,`https://raw.githubusercontent.com/dlancerzz/hanzi/master/${md5}/step.jpg`]
     }else if(event.target.id == "pay"){
       urlList=[`/images/paywx.png`,`/images/paymeali.png`]
     }
@@ -70,13 +56,5 @@ Page({
         current: imageurl, // 当前显示图片的http链接
         urls:urlList // 需要预览的图片http链接列表
       })
-    // var that=this;
-    // var src = that.data.discount.imgPath;//获取data-src
-    // var imgList = [that.data.discount.imgPath];//获取data-list
-    // //图片预览
-    // wx.previewImage({
-    //   current: src, // 当前显示图片的http链接
-    //   urls: imgList // 需要预览的图片http链接列表
-    // })
   },
 })

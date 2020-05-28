@@ -15,6 +15,6 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {hanziInfo:{}}
   }
 })

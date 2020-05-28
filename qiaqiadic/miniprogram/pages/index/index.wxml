@@ -1,40 +1,74 @@
 <!--index.wxml-->
 <view class="container">
-<view class="page-section">
-    <view>
-      <view class="padingview">
-        <input class="inputforquery" maxlength="1" placeholder="要查询的汉字" type="text" bindinput="bindKeyInput" confirm-type="search"  />
-        <!-- <button class="padingview" type="primary" plain="true"  bindtap="loadDefault">查询</button> -->
-      </view>
-    </view>
-  </view>
-   <scroll-view scroll-y="true" >
-        <view class="centerview" >
-        <navigator url="../stpe/step?id={{hanziInfo.Char}}" open-type="navigate"   >
-        <image class="step-image" mode="aspectFit" src="{{gifurl}}" ></image>
-        </navigator>
-        </view>
-        <view class="padingview">
-        <text class="titletext">拼音：</text><text class="normaltext">{{hanziInfo.Pinyin}}</text>
-        </view>
-        <view class="padingview">
-        <text class="titletext">部首：</text><text class="normaltext">{{hanziInfo.Radical}}</text>
-        <text class="titletext">笔画：</text><text class="normaltext">{{hanziInfo.Strokes}}</text>
-        <text class="titletext">五行：</text><text class="normaltext">{{hanziInfo.Elements}}</text>
-        </view>
-        <view class="padingview">
-        <text class="titletext">组词：</text>
-        </view>
-        <view class="padingview">
-        <text class="normaltext">{{hanziInfo.Word}}</text>
-        </view>
-        <view class="padingview">
-        <text class="titletext">释义：</text>
-        </view>
-        <view class="padingview">
-        <text class="normaltext">{{hanziInfo.Paraphrase}}</text>
-        </view>
-        </scroll-view>
+<!-- <view wx:for="{{strs}}" wx:key="index" wx:for-item="newitem" class="scrollitem">
+						<view class="padingview">
+							<text class="normaltext">{{newitem}}.</text>
+							<text class="normaltext">{{newitem}}</text>
+						</view>
+					</view> -->
+	<view class="page-section">
+		<view>
+			<view class="padingview">
+				<input class="inputforquery" maxlength="1" placeholder="要查询的汉字" type="text" value="{{inputchar}}" bindtap="bindqueryfocus" bindinput="bindKeyInput" confirm-type="search" />
+				<!-- <button class="padingview" type="primary" plain="true"  bindtap="loadDefault">查询</button> -->
+			</view>
+		</view>
+	</view>
+	<scroll-view scroll-y="true">
+		<view class="centerview">
+			<navigator url="../stpe/step?id={{hanziInfo.Char}}" open-type="navigate">
+				<image class="step-image" mode="aspectFit" src="{{gifurl}}"></image>
+			</navigator>
+		</view>
+		<view class="padingview">
+			<text class="titletext">拼音：</text><text class="normaltext">{{hanziInfo.Pinyin}}</text>
+		</view>
+		<view class="padingview">
+			<text class="titletext">部首：</text><text class="normaltext">{{hanziInfo.Radical}}</text>
+			<text class="titletext">笔画：</text><text class="normaltext">{{hanziInfo.Strokes}}</text>
+			<text class="titletext">五行：</text><text class="normaltext">{{hanziInfo.Elements}}</text>
+			<text class="titletext">拆解：</text><text class="normaltext">{{hanziInfo.Analysis1}}</text>
+		</view>
+		<view class="padingview">
+			<navigator url="../stpe/step?id={{hanziInfo.Char}}" open-type="navigate">
+				<text class="titletext">笔顺：  (点击查看图片)</text>
+			</navigator>
+		</view>
+		<view class="padingview">
+			<text class="normaltext">{{hanziInfo.StrokeOrder}}</text>
+		</view>
+		<view class="padingview">
+			<navigator url="../words/words?id={{hanziInfo.Char}}" open-type="navigate">
+				<text class="titletext">组词：  (点击查看更多)</text>
+			</navigator>
+		</view>
+		<view class="padingview">
+			<text class="normaltext">{{hanziInfo.Word}}</text>
+		</view>
+		<view class="padingview">
+			<navigator url="../parap/parap?id={{hanziInfo.Char}}" open-type="navigate">
+				<text class="titletext">释义：  (点击查看更多)</text>
+			</navigator>
+		</view>
+		<view class="padingview">
+			<view wx:for="{{paraphrase}}" wx:key="index" class="scrollitem">
+				<view class="flex-wrp">
+					<view class="titletext">
+						<text style="word-wrap: break-word;" >{{item.duyin}}</text>
+					</view>
+					<view wx:for="{{item.paraphrase}}" wx:key="index" wx:for-item="newitem" class="scrollitem">
+						<view class="padingview">
+							<text class="normaltext">{{newitem.order}}.</text>
+							<text class="normaltext">{{newitem.context}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="padingview">
+			<text class="normaltext">{{hanziInfo.Paraphrase}}</text>
+		</view> -->
+	</scroll-view>
 
 
 </view>

@@ -1,0 +1,69 @@
+<scroll-view class="centerview">
+	<view wx:if='{{para3}}'>
+		<view class="titletextlager">
+			<text style="word-wrap: break-word;" >康熙字典</text>
+		</view>
+		<view class="padingview">
+			<view class="titletext">
+				<text >类目：{{para3.category}}</text>
+			</view>
+      <view wx:for="{{para3.paraphrase}}" wx:key="index" class="scrollitem">
+			<view class="padingview">
+				<text class="normaltext">{{item.text}}</text>
+			</view>
+      </view>
+		</view>
+	</view>
+	<view wx:if='{{para4}}'>
+		<view class="titletextlager">
+			<text style="word-wrap: break-word;" >说文解字</text>
+		</view>
+		<view class="padingview">
+			<view class="titletext">
+				<text style="word-wrap: break-word;" >【{{para4.number}}】</text>
+			</view>
+			<view class="padingview">
+				<text class="normaltext">{{para4.swtext}}.</text>
+			</view>
+			<view class="titletext">
+				<text style="word-wrap: break-word;" >【{{para4.swParaphrase.title}}】</text>
+			</view>
+			<view wx:for="{{para4.swParaphrase.subtext}}" wx:key="index" class="scrollitem">
+				<view class="flex-wrp">
+					<view class="titletext">
+						<text style="word-wrap: break-word;" >{{item.subtitle}}</text>
+					</view>
+					<view class="padingview">
+						<text class="normaltext">{{item.text}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view wx:if='{{para2}}'>
+		<view class="titletextlager">
+			<text style="word-wrap: break-word;" >网络释义</text>
+		</view>
+		<view class="padingview">
+			<view wx:for="{{para2}}" wx:key="index" class="scrollitem">
+				<view class="flex-wrp">
+					<view class="titletext">
+						<text style="word-wrap: break-word;" >{{item.duyin}}</text>
+					</view>
+					<view wx:for="{{item.item}}" wx:key="index" wx:for-item="newitem" class="scrollitem">
+						<view class="titletext">
+							<text style="word-wrap: break-word;" >--{{newitem.cxin}}</text>
+						</view>
+						<view wx:for="{{newitem.paraphrase}}" wx:key="index" wx:for-item="subitem" class="scrollitem">
+							<view class="padingview">
+								<text class="normaltext">{{subitem.order}}.</text>
+								<text class="normaltext">{{subitem.context}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</scroll-view>
